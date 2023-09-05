@@ -33,7 +33,7 @@ namespace aspnetapp.Controllers
         private async Task<Signup> addSignup()
         {
             var signup = new Signup();
-            _context.Signups.Add(signup);
+            await _context.Signups.AddAsync(signup);
             await _context.SaveChangesAsync();
             return signup;
         }
@@ -48,8 +48,13 @@ namespace aspnetapp.Controllers
             signup.UnitMainPerson = postData.UnitMainPerson;
             signup.UnitMainPersonPhone = postData.UnitMainPersonPhone;
             await _context.SaveChangesAsync();
-            return new SignupResponse(
-            );
+            return new SignupResponse
+            {
+                unitName = signup.unitName,
+                isVIP = signup.isVIP,
+                UnitMainPerson = signup.UnitMainPerson,
+                UnitMainPersonPhone = signup.UnitMainPersonPhone
+            };
         }
     }
 }
