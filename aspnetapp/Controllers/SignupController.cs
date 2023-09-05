@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 public class SignupRequest
 {
     public string 单位名 { get; set; }
-    public bool 会员 { get; set; }
+    public string 会员 { get; set; }
     public string 单位联系人 { get; set; }
     public string 单位联系人移动电话 { get; set; }
 }
@@ -12,7 +12,7 @@ public class SignupRequest
 public class SignupResponse
 {
     public string 单位名 { get; set; }
-    public bool 会员 { get; set; }
+    public string 会员 { get; set; }
     public string 单位联系人 { get; set; }
     public string 单位联系人移动电话 { get; set; }
 }
