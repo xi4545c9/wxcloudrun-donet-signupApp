@@ -28,7 +28,7 @@ public partial class SignupContext : DbContext
     {
         modelBuilder.UseCollation("utf8_general_ci")
             .HasCharSet("utf8");
-        modelBuilder.Entity<Counter>().ToTable("Signups");
+        modelBuilder.Entity<Signup>().ToTable("Signups");
         OnModelCreatingPartial(modelBuilder);
     }
 
