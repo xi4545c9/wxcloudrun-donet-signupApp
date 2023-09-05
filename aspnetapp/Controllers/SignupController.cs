@@ -42,12 +42,14 @@ namespace aspnetapp.Controllers
         public async Task<ActionResult<SignupResponse>> PostSignup(SignupRequest postData)
         {
             var signup = await addSignup();
+            signup.id = _context.Signups.Count();
             signup.单位名 = postData.单位名;
             signup.会员 = postData.会员;
             signup.单位联系人 = postData.单位联系人;
             signup.单位联系人移动电话 = postData.单位联系人移动电话;
             await _context.SaveChangesAsync();
-            return new SignupResponse();
+            return new SignupResponse(
+            );
         }
     }
 }
