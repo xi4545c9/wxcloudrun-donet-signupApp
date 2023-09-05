@@ -48,13 +48,7 @@ namespace aspnetapp.Controllers
             signup.UnitMainPerson = postData.UnitMainPerson;
             signup.UnitMainPersonPhone = postData.UnitMainPersonPhone;
             await _context.SaveChangesAsync();
-            return new SignupResponse
-            {
-                unitName = signup.unitName,
-                isVIP = signup.isVIP,
-                UnitMainPerson = signup.UnitMainPerson,
-                UnitMainPersonPhone = signup.UnitMainPersonPhone
-            };
+            return new SignupResponse();
         }
     }
 }
