@@ -30,16 +30,18 @@ namespace aspnetapp.Controllers
             _context = context;
         }
 
-        private async Task<Signup> getSignup()
+        private async Task<Signup> addSignup()
         {
-            var signups = await _context.Signups.ToListAsync();
-            return signups[0];
+            var signup = new Signup();
+            _context.Signups.Add(signup);
+            await _context.SaveChangesAsync();
+            return signup;
         }
 
         [HttpPost]
         public async Task<ActionResult<SignupResponse>> PostSignup(SignupRequest postData)
         {
-            var signup = await getSignup();
+            var signup = await addSignup();
             signup.单位名 = postData.单位名;
             signup.会员 = postData.会员;
             signup.单位联系人 = postData.单位联系人;
