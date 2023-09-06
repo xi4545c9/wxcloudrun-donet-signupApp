@@ -63,5 +63,6 @@ namespace aspnetapp
         public string 参会人15姓名 { get; set; }
         public string 参会人15号码 { get; set; }
         public string 参会人15职务 { get; set; }
+        public string 备注 { get; set; }
     }
 }

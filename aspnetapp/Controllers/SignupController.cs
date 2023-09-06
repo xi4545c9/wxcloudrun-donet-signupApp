@@ -55,6 +55,7 @@ public class SignupRequest
     public string 参会人15姓名 { get; set; }
     public string 参会人15号码 { get; set; }
     public string 参会人15职务 { get; set; }
+    public string 备注 { get; set; }
 }
 
 public class SignupResponse
@@ -111,6 +112,7 @@ public class SignupResponse
     public string 参会人15姓名 { get; set; }
     public string 参会人15号码 { get; set; }
     public string 参会人15职务 { get; set; }
+    public string 备注 { get; set; }
 }
 
 namespace aspnetapp.Controllers
@@ -191,6 +193,7 @@ namespace aspnetapp.Controllers
             signup.参会人15姓名 = postData.参会人15姓名;
             signup.参会人15号码 = postData.参会人15号码;
             signup.参会人15职务 = postData.参会人15职务;
+            signup.备注 = postData.备注;
             await _context.SaveChangesAsync();
             return new SignupResponse
             {
@@ -245,7 +248,8 @@ namespace aspnetapp.Controllers
                 参会人14职务=signup.参会人14职务,
                 参会人15姓名=signup.参会人15姓名,
                 参会人15号码=signup.参会人15号码,
-                参会人15职务=signup.参会人15职务
+                参会人15职务=signup.参会人15职务,
+                备注=signup.备注
             };
         }
     }
